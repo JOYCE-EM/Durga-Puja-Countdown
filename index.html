@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দূর্গা পূজা ২০২৪ - কাউন্টডাউন</title>
+
+    <!-- Google Font Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&display=swap" rel="stylesheet">
+
+    <!-- CSS Styling -->
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f9e4c8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #444;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+        .header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 30px;
+            border-radius: 15px 15px 0 0;
+        }
+        .header h1 {
+            font-size: 64px;
+            margin: 0;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .countdown {
+            margin: 40px 0;
+            font-size: 28px;
+            color: #333;
+        }
+        .countdown h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #d32f2f;
+            text-shadow: 1px 1px 4px #000;
+        }
+        .timer {
+            font-size: 50px;
+            color: #ff4081;
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            letter-spacing: 2px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #555;
+            font-weight: bold;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>দূর্গা পূজা ২০২৪ - কাউন্টডাউন</h1>
+        </div>
+
+        <!-- Countdown Section -->
+        <div class="countdown">
+            <h2>মহালয়া শুরু হতে বাকি:</h2>
+            <div id="mahishasura-timer" class="timer"></div>
+        </div>
+
+        <div class="countdown">
+            <h2>ষষ্ঠী শুরু হতে বাকি:</h2>
+            <div id="shashti-timer" class="timer"></div>
+        </div>
+
+        <div class="countdown">
+            <h2>সপ্তমী শুরু হতে বাকি:</h2>
+            <div id="saptami-timer" class="timer"></div>
+        </div>
+
+        <div class="countdown">
+            <h2>অষ্টমী শুরু হতে বাকি:</h2>
+            <div id="ashtami-timer" class="timer"></div>
+        </div>
+
+        <div class="countdown">
+            <h2>নবমী শুরু হতে বাকি:</h2>
+            <div id="navami-timer" class="timer"></div>
+        </div>
+
+        <div class="countdown">
+            <h2>দশমী শুরু হতে বাকি:</h2>
+            <div id="dashami-timer" class="timer"></div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>&copy; ২০২৪ দূর্গা পূজা কাউন্টডাউন</p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Countdown Timers -->
+    <script>
+        // Function to calculate and display countdown
+        function startCountdown(endDate, elementId) {
+            const targetDate = new Date(endDate).getTime();
+            const countdownElement = document.getElementById(elementId);
+
+            const interval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days} দিন ${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড`;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "উৎসব শুরু হয়েছে!";
+                }
+            }, 1000);
+        }
+
+        // Starting countdowns for each day
+        startCountdown('Oct 9, 2024 05:30:00', 'mahishasura-timer'); // মহালয়া
+        startCountdown('Oct 13, 2024 07:00:00', 'shashti-timer'); // ষষ্ঠী
+        startCountdown('Oct 14, 2024 07:30:00', 'saptami-timer'); // সপ্তমী
+        startCountdown('Oct 15, 2024 08:00:00', 'ashtami-timer'); // অষ্টমী
+        startCountdown('Oct 16, 2024 08:30:00', 'navami-timer'); // নবমী
+        startCountdown('Oct 17, 2024 09:00:00', 'dashami-timer'); // দশমী
+    </script>
+</body>
+</html>
